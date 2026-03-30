@@ -13,12 +13,10 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - base
         baseImage:
-          - debian:latest
-          - ubuntu:latest
-          - mcr.microsoft.com/devcontainers/base:ubuntu
+          - debian:trixie
+          - mcr.microsoft.com/devcontainers/base:trixie
     steps:
       - uses: actions/checkout@v4
 
@@ -34,8 +32,7 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - base
     steps:
       - uses: actions/checkout@v4
 

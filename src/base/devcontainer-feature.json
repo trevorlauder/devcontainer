@@ -1,0 +1,22 @@
+{
+  "id": "base",
+  "version": "1.0.0",
+  "name": "Base Development Environment",
+  "description": "Base devcontainer image layer",
+  "options": {
+    "timezone": {
+      "type": "string",
+      "default": "America/Edmonton",
+      "description": "Container timezone"
+    }
+  },
+  "containerEnv": {
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "DEVCONTAINER": "true",
+    "SHELL": "/usr/bin/zsh",
+    "EDITOR": "vi",
+    "VISUAL": "vi",
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+  }
+}
