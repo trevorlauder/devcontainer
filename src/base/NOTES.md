@@ -40,7 +40,7 @@ To allow additional domains, create `.devcontainer/firewall-extra-fqdns.txt` in 
   "name": "My Devcontainer Name",
   "image": "mcr.microsoft.com/devcontainers/base:trixie",
   "features": {
-    "ghcr.io/trevorlauder/devcontainers/base:1.1.6": {}
+    "ghcr.io/trevorlauder/devcontainers/base:1": {}
   },
   "runArgs": ["--cap-add=NET_ADMIN", "--cap-add=NET_RAW"],
   "customizations": {
@@ -77,8 +77,7 @@ To allow additional domains, create `.devcontainer/firewall-extra-fqdns.txt` in 
     "source=${localWorkspaceFolder}/.dotfiles-local-settings,target=/home/vscode/.dotfiles-local-settings,type=bind,consistency=cached"
   ],
   "containerEnv": {
-    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
-    "CHEZMOI_CONTEXT": "work"
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
   },
   "remoteEnv": {
     "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
