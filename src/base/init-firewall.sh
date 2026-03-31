@@ -31,6 +31,22 @@ resolve_domain() {
     done <<< "${ips}"
 }
 
+resolve_domains() {
+    local description="${1}"
+    echo "Processing ${description}..."
+    while read -r domain; do
+        resolve_domain "${domain}"
+    done
+}
+
+collect_cidrs() {
+    local description="${1}"
+    echo "Processing ${description}..."
+    while read -r cidr; do
+        collect_range "${cidr}" "${description}"
+    done
+}
+
 verify_blocked() {
     if curl --connect-timeout 5 "${1}" >/dev/null 2>&1; then
         echo "ERROR: ${1} should be blocked but is reachable"
@@ -81,7 +97,6 @@ else
     echo "No Docker DNS rules to restore"
 fi
 
-
 iptables -A INPUT  -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
@@ -97,35 +112,31 @@ echo "Host network detected as: ${host_network}"
 iptables -A INPUT  -s "${host_network}" -j ACCEPT
 iptables -A OUTPUT -d "${host_network}" -j ACCEPT
 
-if [ -z "${GITHUB_TOKEN:-}" ]; then
-    echo "Fetching GitHub IP ranges..."
-    github_ranges=$(curl -s https://api.github.com/meta)
-else
-    echo "Fetching GitHub IP ranges with authentication..."
-    github_ranges=$(curl -s -H "Authorization: Bearer ${GITHUB_TOKEN}" https://api.github.com/meta)
-fi
+fetch_github_ranges() {
+    local args=()
+    [ -n "${GITHUB_TOKEN:-}" ] && args+=(-H "Authorization: Bearer ${GITHUB_TOKEN}")
+    local response
+    response=$(curl -s "${args[@]}" https://api.github.com/meta)
+    if [ -z "${response}" ]; then
+        echo "ERROR: Failed to fetch GitHub IP ranges"
+        exit 1
+    fi
+    if ! echo "${response}" | jq -e '.web and .api and .git' >/dev/null; then
+        echo "ERROR: GitHub API response missing required fields"
+        exit 1
+    fi
+    echo "${response}" | jq -r '(.web + .api + .git)[] | select(contains(":") | not)'
+}
 
-if [ -z "${github_ranges}" ]; then
-    echo "ERROR: Failed to fetch GitHub IP ranges"
-    exit 1
-fi
 
-if ! echo "${github_ranges}" | jq -e '.web and .api and .git' >/dev/null; then
-    echo "ERROR: GitHub API response missing required fields"
-    exit 1
-fi
+fqdns() {
+    grep -shvE '^([[:space:]]*#|[[:space:]]*$)' \
+        /usr/local/etc/firewall-fqdns.txt \
+        /usr/local/etc/firewall-extra-fqdns.d/* 2>/dev/null || true
+}
 
-echo "Processing GitHub IPs..."
-while read -r cidr; do
-    collect_range "${cidr}" "GitHub meta"
-done < <(echo "${github_ranges}" | jq -r '(.web + .api + .git)[] | select(contains(":") | not)')
-
-echo "Processing FQDNs..."
-while read -r domain; do
-    resolve_domain "${domain}"
-done < <(grep -shvE '^([[:space:]]*#|[[:space:]]*$)' \
-    /usr/local/etc/firewall-fqdns.txt \
-    /usr/local/etc/firewall-extra-fqdns.txt 2>/dev/null || true)
+fetch_github_ranges | collect_cidrs "GitHub"
+fqdns | resolve_domains "FQDNs"
 
 echo "Adding aggregated ranges..."
 while read -r range; do

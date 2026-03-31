@@ -21,7 +21,7 @@ Four mounts are recommended. The first two are named volumes scoped to the conta
   "source=shell-history-${localWorkspaceFolderBasename},target=/commandhistory,type=volume",
   "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume",
   "source=mise-cache,target=/home/vscode/.local/share/mise,type=volume",
-  "source=${localWorkspaceFolder}/.devcontainer/firewall-extra-fqdns.txt,target=/usr/local/etc/firewall-extra-fqdns.txt,type=bind,consistency=cached"
+  "source=${localWorkspaceFolder}/.devcontainer/firewall-extra-fqdns.txt,target=/usr/local/etc/firewall-extra-fqdns.d/extra-fqdns.txt,type=bind,consistency=cached"
 ]
 ```
 
@@ -31,7 +31,7 @@ The container starts an allowlist-based firewall that blocks all outbound traffi
 
 The built-in allowlist is defined in `src/base/firewall-fqdns.txt`.
 
-To allow additional domains, create `.devcontainer/firewall-extra-fqdns.txt` in your project with one domain per line and bind mount it as shown above. The firewall resolves those domains and adds them to the allowlist at startup.
+To allow additional domains, create `.devcontainer/firewall-extra-fqdns.txt` in your project with one domain per line and bind mount it into `/usr/local/etc/firewall-extra-fqdns.d/` as shown above. The firewall reads all files in that directory at startup, so other features or bind mounts can each contribute their own list of domains.
 
 ## Full Example
 
@@ -73,7 +73,7 @@ To allow additional domains, create `.devcontainer/firewall-extra-fqdns.txt` in 
     "source=shell-history-${localWorkspaceFolderBasename},target=/commandhistory,type=volume",
     "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume",
     "source=mise-cache,target=/home/vscode/.local/share/mise,type=volume",
-    "source=${localWorkspaceFolder}/.devcontainer/firewall-extra-fqdns.txt,target=/usr/local/etc/firewall-extra-fqdns.txt,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder}/.devcontainer/firewall-extra-fqdns.txt,target=/usr/local/etc/firewall-extra-fqdns.d/extra-fqdns.txt,type=bind,consistency=cached"
   ],
   "containerEnv": {
     "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
