@@ -84,6 +84,7 @@ mkdir -p \
     /workspace \
     /commandhistory \
     "${HOME_DIR}/.claude" \
+    "${HOME_DIR}/.cache" \
     "${HOME_DIR}/.config/mise/conf.d" \
     "${HOME_DIR}/.local/share/mise" \
     "${HOME_DIR}/.local/share/uv" \
