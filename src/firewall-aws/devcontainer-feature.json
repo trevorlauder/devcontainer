@@ -1,0 +1,6 @@
+{
+  "id": "firewall-aws",
+  "version": "1.0.0",
+  "name": "AWS Firewall FQDNs",
+  "description": "Allows outbound traffic to AWS endpoints by generating FQDNs from botocore endpoint data for the firewall"
+}
