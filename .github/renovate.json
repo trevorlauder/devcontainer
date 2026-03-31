@@ -10,7 +10,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/src/base/devcontainer-feature\.json/"
+        "/src/base/devcontainer-feature\\.json/"
       ],
       "matchStrings": [
         "\"chezmoiVersion\"[\\s\\S]*?\"default\":\\s*\"(?<currentValue>[^\"]+)\""
