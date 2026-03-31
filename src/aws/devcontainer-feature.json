@@ -2,7 +2,7 @@
   "id": "aws",
   "version": "1.0.3",
   "name": "AWS Feature",
-  "description": "Allows outbound traffic to AWS endpoints by generating FQDNs from botocore endpoint data for the firewall",
+  "description": "Configures AWS tooling and optionally allows outbound traffic to AWS endpoints for the firewall.",
   "options": {
     "enableFirewall": {
       "type": "boolean",
@@ -24,10 +24,10 @@
       "default": false,
       "description": "Include FIPS endpoints (keys matching 'fips-*' or '*-fips')."
     },
-    "createGrantedDir": {
+    "useGranted": {
       "type": "boolean",
       "default": true,
-      "description": "Create the ~/.granted directory owned by the container user."
+      "description": "Install and setup Granted."
     },
     "username": {
       "type": "string",

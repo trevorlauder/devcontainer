@@ -26,7 +26,10 @@ if [ "${ENABLEFIREWALL}" = "true" ]; then
         > /usr/local/etc/firewall-extra-fqdns.d/feature-firewall-aws-fqdns.txt
 fi
 
-if [ "${CREATEGRANTEDDIR}" = "true" ]; then
+install -m 0644 "${FEATURE_DIR}/mise.toml" "/home/${USERNAME}/.config/mise/conf.d/aws.toml"
+
+if [ "${USEGRANTED}" = "true" ]; then
     mkdir -p /home/${USERNAME}/.granted
     chown ${USERNAME}:${USERNAME} /home/${USERNAME}/.granted
+    install -m 0644 "${FEATURE_DIR}/mise.granted.toml" "/home/${USERNAME}/.config/mise/conf.d/aws-granted.toml"
 fi
