@@ -35,14 +35,14 @@ jobs:
           persist-credentials: false
 
       - name: "Generate GitHub App Token"
-        uses: actions/create-github-app-token@3ff1caaa28b64c9cc276b2fff1d7e6a97e39c27d # v2.0.0
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         id: app-token
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: "Login to GitHub Container Registry"
-        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2 # v4.0.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -73,14 +73,14 @@ jobs:
           persist-credentials: false
 
       - name: "Generate GitHub App Token"
-        uses: actions/create-github-app-token@3ff1caaa28b64c9cc276b2fff1d7e6a97e39c27d # v2.0.0
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
         id: app-token
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: "Login to GitHub Container Registry"
-        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2 # v4.0.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
