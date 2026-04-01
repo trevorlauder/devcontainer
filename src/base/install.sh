@@ -77,6 +77,7 @@ fi
 
 install -m 0440 "${FEATURE_DIR}/sudoers" /etc/sudoers.d/${USERNAME}
 
+rm -rf "${HOME_DIR}/.zgen"
 git clone --depth 1 https://github.com/tarjoilija/zgen.git "${HOME_DIR}/.zgen"
 rm -rf "${HOME_DIR}/.zgen/.git"
 
