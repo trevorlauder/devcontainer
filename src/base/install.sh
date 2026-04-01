@@ -85,6 +85,8 @@ mkdir -p \
     /workspace \
     /commandhistory \
     /usr/local/etc/firewall-extra-fqdns.d \
+    "${HOME_DIR}/.cache/pre-commit" \
+    "${HOME_DIR}/.cache/prek" \
     "${HOME_DIR}/.claude" \
     "${HOME_DIR}/.config/mise/conf.d" \
     "${HOME_DIR}/.local/share/mise"

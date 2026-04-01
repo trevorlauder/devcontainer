@@ -1,6 +1,6 @@
 {
   "id": "base",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "name": "Base Development Environment",
   "description": "Base devcontainer image layer",
   "options": {
@@ -33,7 +33,16 @@
         "github.vscode-pull-request-github",
         "ms-azuretools.vscode-containers",
         "ms-python.python"
-      ]
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "zsh",
+            "args": ["-l"]
+          }
+        }
+      }
     }
   },
   "containerEnv": {
