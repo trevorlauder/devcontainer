@@ -15,7 +15,7 @@ Base devcontainer image layer
 | Options Id     | Description                                                                           | Type   | Default Value    |
 | -------------- | ------------------------------------------------------------------------------------- | ------ | ---------------- |
 | timezone       | Container timezone                                                                    | string | America/Edmonton |
-| chezmoiVersion | chezmoi version to install                                                            | string | 2.70.0           |
+| chezmoiVersion | chezmoi version to install                                                            | string | 2.70.1           |
 | homeDirs       | Space-separated list of directories relative to $HOME to create as the container user | string | -                |
 
 ## Customizations
