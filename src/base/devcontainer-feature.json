@@ -1,6 +1,6 @@
 {
   "id": "base",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "name": "Base Development Environment",
   "description": "Base devcontainer image layer",
   "options": {
@@ -18,6 +18,11 @@
       "type": "string",
       "default": "",
       "description": "Space-separated list of directories relative to $HOME to create as the container user"
+    },
+    "packages": {
+      "type": "string",
+      "default": "",
+      "description": "Space-separated list of packages to install in the container using apt-get"
     }
   },
   "customizations": {
