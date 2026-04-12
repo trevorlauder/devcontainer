@@ -25,6 +25,7 @@ apt-get install -y --no-install-recommends \
     mise \
     cosign \
     curl \
+    gzip \
     less \
     procps \
     dnsutils \
@@ -40,6 +41,8 @@ rm -rf /etc/sudoers /etc/sudoers.d
 apt autoremove -y
 
 rm -rf /var/lib/apt/lists/*
+
+ldconfig
 
 mkdir /tmp/chezmoi
 
