@@ -95,7 +95,7 @@ fi
 
 chown -R "${REMOTE_USER}:${REMOTE_USER}" "${REMOTE_USER_HOME}"
 
-install -o "${REMOTE_USER}" -g "${REMOTE_USER}" -m 0644 "${FEATURE_DIR}/mise.toml" "/home/${REMOTE_USER}/.config/mise/conf.d/999-base.toml"
+install -o "${REMOTE_USER}" -g "${REMOTE_USER}" -m 0644 "${FEATURE_DIR}/mise.toml" "${REMOTE_USER_HOME}/.config/mise/conf.d/999-base.toml"
 
 ln -sf "/usr/share/zoneinfo/${TIMEZONE}" /etc/localtime
 echo "${TIMEZONE}" > /etc/timezone
