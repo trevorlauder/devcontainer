@@ -35,6 +35,10 @@ apt-get install -y --no-install-recommends \
     git \
     vim
 
+if [ -n "${PACKAGES:-}" ]; then
+  apt-get install -y --no-install-recommends $PACKAGES
+fi
+
 SUDO_FORCE_REMOVE=yes apt-get purge -y sudo
 rm -rf /etc/sudoers /etc/sudoers.d
 
