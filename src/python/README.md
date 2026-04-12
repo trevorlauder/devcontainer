@@ -1,6 +1,6 @@
 # Python Feature (python)
 
-Configures Python tooling and optionally allows outbound traffic to Python endpoints for the firewall.
+Configures Python tooling
 
 ## Example Usage
 
@@ -12,10 +12,8 @@ Configures Python tooling and optionally allows outbound traffic to Python endpo
 
 ## Options
 
-| Options Id     | Description                                                                         | Type    | Default Value |
-| -------------- | ----------------------------------------------------------------------------------- | ------- | ------------- |
-| enableFirewall | Generate FQDN allow-list entries for Python endpoints used by the firewall feature. | boolean | true          |
-| username       | Username that owns created files and directories.                                   | string  | vscode        |
+| Options Id | Description | Type | Default Value |
+| ---------- | ----------- | ---- | ------------- |
 
 ## Customizations
 
