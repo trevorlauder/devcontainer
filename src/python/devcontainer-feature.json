@@ -3,9 +3,9 @@
   "version": "1.2.0",
   "name": "Python Feature",
   "description": "Configures Python tooling",
-  "installsAfter": [
-    "ghcr.io/trevorlauder/devcontainers/base"
-  ],
+  "dependsOn": {
+    "ghcr.io/trevorlauder/devcontainers/base:1": {}
+  },
   "options": {},
   "customizations": {
     "vscode": {

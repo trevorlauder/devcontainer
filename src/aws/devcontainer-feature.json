@@ -3,9 +3,9 @@
   "version": "1.1.5",
   "name": "AWS Feature",
   "description": "Configures AWS tooling",
-  "installsAfter": [
-    "ghcr.io/trevorlauder/devcontainers/base"
-  ],
+  "dependsOn": {
+    "ghcr.io/trevorlauder/devcontainers/base:1": {}
+  },
   "options": {
     "useGranted": {
       "type": "boolean",

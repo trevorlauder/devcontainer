@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "name": "Homebrew",
   "description": "Installs Homebrew and optionally installs packages",
-  "installsAfter": [
-    "ghcr.io/trevorlauder/devcontainers/base"
-  ],
+  "dependsOn": {
+    "ghcr.io/trevorlauder/devcontainers/base:1": {}
+  },
   "options": {
     "packages": {
       "type": "string",
