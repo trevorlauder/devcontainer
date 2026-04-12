@@ -1,6 +1,6 @@
 # Ansible Feature (ansible)
 
-Configures Ansible tooling and optionally allows outbound traffic to Ansible endpoints for the firewall.
+Configures Ansible tooling
 
 ## Example Usage
 
@@ -12,10 +12,8 @@ Configures Ansible tooling and optionally allows outbound traffic to Ansible end
 
 ## Options
 
-| Options Id     | Description                                                                          | Type    | Default Value |
-| -------------- | ------------------------------------------------------------------------------------ | ------- | ------------- |
-| enableFirewall | Generate FQDN allow-list entries for Ansible endpoints used by the firewall feature. | boolean | true          |
-| username       | Username that owns created files and directories.                                    | string  | vscode        |
+| Options Id | Description | Type | Default Value |
+| ---------- | ----------- | ---- | ------------- |
 
 ## Customizations
 
