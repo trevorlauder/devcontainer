@@ -1,6 +1,6 @@
 {
   "name": "Devcontainers",
-  "image": "mcr.microsoft.com/devcontainers/base:trixie",
+  "image": "dhi.io/debian-base:trixie-debian13-dev",
   "features": {
     "ghcr.io/trevorlauder/devcontainers/base:1": {},
     "ghcr.io/trevorlauder/devcontainers/homebrew:1": {}
@@ -12,6 +12,6 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
   "workspaceFolder": "/workspace",
   "initializeCommand": "nerdctl run --rm -v vscode:/vscode alpine chmod 755 /vscode 2>/dev/null || true",
-  "postStartCommand": "/usr/local/bin/init-container.sh",
+  "postStartCommand": "init-container.sh",
   "waitFor": "postStartCommand"
 }
