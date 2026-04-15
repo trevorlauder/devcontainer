@@ -20,9 +20,13 @@ rm -rf /var/lib/apt/lists/*
 
 mkdir -p "${HOMEBREW_PREFIX}/Homebrew" "${HOMEBREW_PREFIX}/bin"
 chown -R ${USERNAME}:${USERNAME} "${HOMEBREW_PREFIX}"
-setpriv --reuid="${USERNAME}" --regid="${USERNAME}" --init-groups -- "${SCRIPT_DIR}/setup.sh"
+su "${USERNAME}" -c "${SCRIPT_DIR}/setup.sh"
 
 install -m 0440 ${FEATURE_DIR}/sudoers /etc/sudoers.d/feature-homebrew-${USERNAME}
 sed -i "s/%USERNAME%/${USERNAME}/g" /etc/sudoers.d/feature-homebrew-${USERNAME}
+chmod 0440 /etc/sudoers.d/feature-homebrew-${USERNAME}
 
 install -m 0755 ${FEATURE_DIR}/post-start.sh /usr/local/sbin/feature-homebrew-post-start.sh
+install -m 0755 ${FEATURE_DIR}/post-start-root.sh /usr/local/sbin/feature-homebrew-post-start-root.sh
+sed -i "s/%USERNAME%/${USERNAME}/g" /usr/local/sbin/feature-homebrew-post-start-root.sh
+sed -i "s/%PACKAGES%/${PACKAGES}/g" /usr/local/sbin/feature-homebrew-post-start.sh

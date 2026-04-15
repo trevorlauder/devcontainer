@@ -1,6 +1,13 @@
 #!/bin/bash
 set -euo pipefail
 
-chown -R ${USERNAME}:${USERNAME} /home/linuxbrew
+PACKAGES="%PACKAGES%"
+BREW="/home/linuxbrew/.linuxbrew/bin/brew"
 
-setpriv --reuid="${USERNAME}" --regid="${USERNAME}" --init-groups -- brew install ${PACKAGES}
+sudo /usr/local/sbin/feature-homebrew-post-start-root.sh
+
+${BREW} config
+
+if [ -n "${PACKAGES}" ]; then
+  ${BREW} install ${PACKAGES}
+fi

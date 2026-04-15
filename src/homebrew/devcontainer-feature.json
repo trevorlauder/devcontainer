@@ -1,6 +1,6 @@
 {
   "id": "homebrew",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "name": "Homebrew",
   "description": "Installs Homebrew and optionally installs packages",
   "dependsOn": {
@@ -22,5 +22,5 @@
     "MANPATH": "/home/linuxbrew/.linuxbrew/share/man:${MANPATH}",
     "INFOPATH": "/home/linuxbrew/.linuxbrew/share/info:${INFOPATH}"
   },
-  "postStartCommand": "sudo /usr/local/sbin/feature-homebrew-post-start.sh"
+  "postStartCommand": "/usr/local/sbin/feature-homebrew-post-start.sh"
 }
