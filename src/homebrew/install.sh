@@ -20,6 +20,7 @@ setpriv --reuid="${USERNAME}" --regid="${USERNAME}" --init-groups -- "${SCRIPT_D
 
 mkdir -p /home/linuxbrew
 ln -s "${HOMEBREW_PREFIX}" /home/linuxbrew/.linuxbrew
+chown -R "${USERNAME}":"${USERNAME}" /home/linuxbrew
 
 if [ -n "${PACKAGES}" ]; then
   setpriv --reuid="${USERNAME}" --regid="${USERNAME}" --init-groups -- brew install ${PACKAGES}
