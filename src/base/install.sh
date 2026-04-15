@@ -25,6 +25,7 @@ apt-get install -y --no-install-recommends \
     mise \
     cosign \
     curl \
+    gh \
     gzip \
     less \
     procps \
