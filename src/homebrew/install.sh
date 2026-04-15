@@ -17,7 +17,8 @@ apt-get update
 apt-get install -y --no-install-recommends build-essential procps curl file git
 rm -rf /var/lib/apt/lists/*
 
-mkdir -p /home/linuxbrew
+mkdir -p "${HOMEBREW_PREFIX}/Homebrew" "${HOMEBREW_PREFIX}/bin"
+chown -R ${USERNAME}:${USERNAME} "${HOMEBREW_PREFIX}"
 setpriv --reuid="${USERNAME}" --regid="${USERNAME}" --init-groups -- "${SCRIPT_DIR}/setup.sh"
 
 install -m 0440 ${FEATURE_DIR}/sudoers /etc/sudoers.d/feature-homebrew-${USERNAME}
