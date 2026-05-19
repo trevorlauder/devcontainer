@@ -1,5 +1,5 @@
 [tools]
-python = "3.14.4"
-claude-code = "2.1.128"
+python = "3.14.5"
+claude-code = "2.1.145"
 github-cli = "2.92.0"
 jq = "1.8.1"
