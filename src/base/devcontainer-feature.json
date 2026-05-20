@@ -11,7 +11,7 @@
     },
     "chezmoiVersion": {
       "type": "string",
-      "default": "2.70.2",
+      "default": "2.70.4",
       "description": "chezmoi version to install"
     },
     "homeDirs": {
