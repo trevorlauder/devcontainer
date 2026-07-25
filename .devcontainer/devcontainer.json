@@ -1,0 +1,39 @@
+{
+  "name": "Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "devcontainer",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-vscode",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "ms-azuretools.vscode-containers",
+        "ms-python.python"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "zsh",
+            "args": ["-l"]
+          }
+        }
+      }
+    }
+  },
+  "mounts": [
+    "source=command-history-${devcontainerId},target=/commandhistory,type=volume",
+    "source=claude-code-config,target=/home/devcontainer/.claude,type=volume",
+    "source=prek-cache,target=/home/devcontainer/.cache/prek,type=volume",
+    "source=rtk-config,target=/home/devcontainer/.config/rtk,type=volume",
+    "source=rtk-share,target=/home/devcontainer/.local/share/rtk,type=volume"
+  ],
+  "remoteEnv": {
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  },
+  "postStartCommand": "/usr/local/bin/post-start.sh",
+  "waitFor": "postStartCommand"
+}

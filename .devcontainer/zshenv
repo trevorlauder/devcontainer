@@ -1,0 +1,4 @@
+
+export LOGNAME=$(id -un)
+export PATH="${HOME}/.local/bin:${PATH}"
+export HISTFILE="/commandhistory/.zsh_history"
