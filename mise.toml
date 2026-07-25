@@ -1,3 +1,7 @@
+[settings]
+lockfile = true
+minimum_release_age = "7d"
+
 [tools]
 actionlint = "1.7.12"
 dprint = "0.55.2"

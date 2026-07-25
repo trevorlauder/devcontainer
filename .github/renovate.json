@@ -6,6 +6,7 @@
   "schedule": [
     "* 0 * * *"
   ],
+  "minimumReleaseAge": "7 days",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
@@ -22,6 +23,12 @@
         "mise"
       ],
       "groupName": "mise"
+    },
+    {
+      "matchManagers": [
+        "dprint"
+      ],
+      "groupName": "dprint"
     }
   ]
 }
