@@ -4,7 +4,7 @@ minimum_release_age = "7d"
 
 [tools]
 actionlint = "1.7.12"
-dprint = "0.58.0"
+dprint = "0.59.0"
 shellcheck = "0.11.0"
 trufflehog = "v3.97.9"
 zizmor = "1.30.1"
