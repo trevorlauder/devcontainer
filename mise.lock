@@ -20,25 +20,25 @@ url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_
 provenance = "github-attestations"
 
 [[tools.dprint]]
-version = "0.59.0"
+version = "0.60.1"
 backend = "aqua:dprint/dprint"
 
 [tools.dprint."platforms.linux-arm64"]
-checksum = "sha256:4c767249bd35be5d3a0fab98a2eb94bcc439330a45d40c2681032d27ed1032b1"
-url = "https://github.com/dprint/dprint/releases/download/0.59.0/dprint-aarch64-unknown-linux-gnu.zip"
-url_api = "https://api.github.com/repos/dprint/dprint/releases/assets/606399175"
+checksum = "sha256:03fd8908f9b418bdc4701347ff0527a59d1c08db2bc09a9f5d8101eb711e7fe2"
+url = "https://github.com/dprint/dprint/releases/download/0.60.1/dprint-aarch64-unknown-linux-gnu.zip"
+url_api = "https://api.github.com/repos/dprint/dprint/releases/assets/608721662"
 provenance = "github-attestations"
 
 [tools.dprint."platforms.linux-x64"]
-checksum = "sha256:1705b1be1773955e882a69c29aebd3862d5b466c951f47495ad6cb423c224f86"
-url = "https://github.com/dprint/dprint/releases/download/0.59.0/dprint-x86_64-unknown-linux-gnu.zip"
-url_api = "https://api.github.com/repos/dprint/dprint/releases/assets/606399168"
+checksum = "sha256:5612c587a34dfbbda37162d46755f9e8c6a4efba7950920b2a308ea84ce0886a"
+url = "https://github.com/dprint/dprint/releases/download/0.60.1/dprint-x86_64-unknown-linux-gnu.zip"
+url_api = "https://api.github.com/repos/dprint/dprint/releases/assets/608721664"
 provenance = "github-attestations"
 
 [tools.dprint."platforms.macos-arm64"]
-checksum = "sha256:1888b152b3541c3690ec5291dd58bde7116e6c8beb4aa1f242187f22071df22f"
-url = "https://github.com/dprint/dprint/releases/download/0.59.0/dprint-aarch64-apple-darwin.zip"
-url_api = "https://api.github.com/repos/dprint/dprint/releases/assets/606399171"
+checksum = "sha256:b495103be1c01ba097449d73af3d76bbcef3deb291b87e9b7db6e8d12d497ef6"
+url = "https://github.com/dprint/dprint/releases/download/0.60.1/dprint-aarch64-apple-darwin.zip"
+url_api = "https://api.github.com/repos/dprint/dprint/releases/assets/608721659"
 provenance = "github-attestations"
 
 [[tools.prek]]
